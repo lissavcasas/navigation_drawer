@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
-import 'business.dart';
-import 'school.dart';
+import 'package:menu_navigation/pages/home.dart';
+import 'package:menu_navigation/pages/business.dart';
+import 'package:menu_navigation/pages/school.dart';
 
 class Navigation extends StatefulWidget {
   Navigation({Key key}) : super(key: key);
@@ -23,7 +23,7 @@ class _NavigationState extends State<Navigation> {
   }
 
   _onSelectItem(int index){
-      Navigator.of(context).pop();
+    Navigator.of(context).pop();
     setState(() {
       _selectedIndex = index;
     });
