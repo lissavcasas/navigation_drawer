@@ -38,10 +38,10 @@ class _NavigationState extends State<Navigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      /* appBar: AppBar(
         title: const Text('Navigation Sample'),
         backgroundColor: Colors.red[800],
-      ),
+      ), */
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,

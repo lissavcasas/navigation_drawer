@@ -7,10 +7,21 @@ class School extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    /* return Container(
       child: Center(
         child: Text(
           'School page',
+          style: optionStyle,
+        ),
+      ),
+    ); */
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('School Page'),
+      ),
+      body: Center(
+        child: Text(
+        'School page',
           style: optionStyle,
         ),
       ),
