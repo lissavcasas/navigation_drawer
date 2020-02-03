@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
+import 'drawer.dart';
  
 void main() => runApp(MyApp());
  
@@ -11,7 +11,10 @@ void main() => runApp(MyApp());
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: _title,
-      home: Home(),
+      theme: ThemeData(
+        primaryColor: Colors.red[800],
+      ),
+      home: SideBar(),
     );
   }
 }
