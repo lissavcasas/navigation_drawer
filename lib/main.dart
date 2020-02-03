@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'drawer.dart';
+import 'navigation.dart';
  
 void main() => runApp(MyApp());
  
@@ -14,7 +14,7 @@ void main() => runApp(MyApp());
       theme: ThemeData(
         primaryColor: Colors.red[800],
       ),
-      home: SideBar(),
+      home: Navigation(),
     );
   }
 }

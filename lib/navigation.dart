@@ -1,57 +1,33 @@
-// Flutter code sample for BottomNavigationBar
-
-// This example shows a [BottomNavigationBar] as it is used within a [Scaffold]
-// widget. The [BottomNavigationBar] has three [BottomNavigationBarItem]
-// widgets and the [currentIndex] is set to index 0. The selected item is
-// amber. The `_onItemTapped` function changes the selected item's index
-// and displays a corresponding message in the center of the [Scaffold].
-//
-// ![A scaffold with a bottom navigation bar containing three bottom navigation
-// bar items. The first one is selected.](https://flutter.github.io/assets-for-api-docs/assets/material/bottom_navigation_bar.png)
-
 import 'package:flutter/material.dart';
+import 'home.dart';
+import 'business.dart';
+import 'school.dart';
 
-void main() => runApp(MyApp());
-
-/// This Widget is the main application widget.
-class MyApp extends StatelessWidget {
-  static const String _title = 'Flutter Code Sample';
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: _title,
-      home: MyStatefulWidget(),
-    );
-  }
-}
-
-class MyStatefulWidget extends StatefulWidget {
-  MyStatefulWidget({Key key}) : super(key: key);
+class Navigation extends StatefulWidget {
+  Navigation({Key key}) : super(key: key);
 
   @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+  _NavigationState createState() => _NavigationState();
 }
 
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+class _NavigationState extends State<Navigation> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-  ];
+  Color color;
+
+  _getDrawerItemWidget( int index) {
+    switch(index){
+      case 0: return Home();
+      case 1: return Business();
+      case 2: return School();
+    }
+  }
+
+  _onSelectItem(int index){
+      Navigator.of(context).pop();
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -63,20 +39,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
+        title: const Text('Navigation Sample'),
         backgroundColor: Colors.red[800],
-      ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
       ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
             UserAccountsDrawerHeader(
-              decoration: BoxDecoration(
+              /* decoration: BoxDecoration(
                 color: Colors.red[800],
-              ),
+              ), */
               accountName: Text('Melissa Casas'),
               accountEmail: Text('marimel.casas@gmail.com'),
               currentAccountPicture: CircleAvatar(
@@ -89,28 +62,39 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ListTile(
               title: Text('Home'),
               leading: Icon(Icons.home),
+              selected: (0 == _selectedIndex),
               onTap: () {
-                Navigator.pop(context);
+                _onSelectItem(0);
               },
             ),
             ListTile(
               title: Text('Business'),
               leading: Icon(Icons.business),
+              selected: (1 == _selectedIndex),
               onTap: () {
-                Navigator.pop(context);
+                _onSelectItem(1);
               },
             ),
             ListTile(
               title: Text('School'),
+              selected: (2 == _selectedIndex),
               leading: Icon(Icons.school),
               onTap: () {
-                Navigator.pop(context);
+                _onSelectItem(2);
+              },
+            ),
+            Divider(),
+             ListTile(
+              title: Text('Logout'),
+              leading: Icon(Icons.exit_to_app),
+              onTap: () {
+                //_onSelectItem(3);
               },
             ),
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
+       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -129,6 +113,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         selectedItemColor: Colors.red[800],
         onTap: _onItemTapped,
       ),
+      body: _getDrawerItemWidget(_selectedIndex),
     );
   }
 }
+  
