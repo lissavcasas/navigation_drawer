@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Business extends StatelessWidget {
-  //const Business({Key key}) : super(key: key);
+class Home extends StatelessWidget {
+  //const Home({Key key}) : super(key: key);
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
@@ -10,7 +10,7 @@ class Business extends StatelessWidget {
     return Container(
       child: Center(
         child: Text(
-          'Business page',
+          'Home page',
           style: optionStyle,
         ),
       ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:menu_navigation/pages/home.dart';
-import 'package:menu_navigation/pages/business.dart';
-import 'package:menu_navigation/pages/school.dart';
+import 'package:menu_navigation/src/pages/home.dart';
+import 'package:menu_navigation/src/pages/business.dart';
+import 'package:menu_navigation/src/pages/school.dart';
 
 class Navigation extends StatefulWidget {
   Navigation({Key key}) : super(key: key);
