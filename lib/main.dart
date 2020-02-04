@@ -19,13 +19,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.red[800],
       ),
-      home: HomePage(),
-      /* initialRoute: '/',
+      //home: HomePage(),
+      initialRoute: '/',
       routes: <String, WidgetBuilder>{
         '/': (BuildContext context) => HomePage(),
-        '/alert': (BuildContext context) => AlertPage(),
-        '/avatar': (BuildContext context) => AvatarPage(),
-      }, */
+        'alert': (BuildContext context) => AlertPage(),
+        'avatar': (BuildContext context) => AvatarPage(),
+      },
     );
   }
 }
