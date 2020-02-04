@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:menu_navigation/src/pages/home_page.dart';
-import 'package:menu_navigation/src/pages/home_temp.dart';
-import 'navigation.dart';
+/* import 'package:menu_navigation/src/pages/home_temp.dart';
+import 'navigation.dart'; */
 
 void main() => runApp(MyApp());
 
