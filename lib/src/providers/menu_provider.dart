@@ -8,24 +8,11 @@ class _MenuProvider {
     //loadData();
   }
 
-  /*  loadData() {
-    rootBundle.loadString('data/menu_opts.json').then((data) {
-      //print(data);
-      Map dataMap = json.decode(data);
-      //print(dataMap['nombreApp']);
-      //print(dataMap['rutas']);
-      options = dataMap['rutas'];
-
-    });
-  } */
-
   Future<List<dynamic>> loadData() async {
     final resp = await rootBundle.loadString('data/menu_opts.json');
     Map dataMap = json.decode(resp);
-    //print(dataMap['nombreApp']);
-    //print(dataMap['rutas']);
-    options = dataMap['rutas'];
 
+    options = dataMap['rutas'];
     return options;
   }
 }

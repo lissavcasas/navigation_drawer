@@ -91,15 +91,21 @@ class HomePage extends StatelessWidget {
     return FutureBuilder(
       future: menuProvider.loadData(),
       //initialData: [],
-      builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
-        return ListView(
+      builder: (context, AsyncSnapshot<List> snapshot) {
+        if(snapshot.hasData){
+          return ListView(
           children: _itemsList(snapshot.data, context),
         );
+        }else{
+          return Container(
+              height: 400.0, child: Center(child: CircularProgressIndicator()));
+        }
+        
       },
     );
   }
 
-  List<Widget> _itemsList(List<dynamic> data, BuildContext context) {
+  List<Widget> _itemsList(List data, BuildContext context) {
 
     final List<Widget> options = [];
 
