@@ -4,7 +4,7 @@ class HomeTemp extends StatelessWidget {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
-      final options = ['One', 'Two', 'Three', 'Four', 'Five'];
+  final options = ['One', 'Two', 'Three', 'Four', 'Five'];
 
   @override
   Widget build(BuildContext context) {
@@ -12,22 +12,32 @@ class HomeTemp extends StatelessWidget {
       appBar: AppBar(
         title: Text('Homepage Temp'),
       ),
-      body: ListView(
-        children: _createItems()
-      ),
+      body: ListView(children: _createItems()),
     );
   }
 
-  List<Widget> _createItems(){
-    List<Widget> list = new List<Widget>();
-    for (String opt in options) {
-      final tempWidget = ListTile(
-        title: Text(opt),
+  List<Widget> _createItems() {
+    return options.map((item) {
+      return Column(
+        children: <Widget>[
+          ListTile(
+            title: Text(item + '!'),
+            subtitle: Text('This is a subtitle'),
+            leading: Icon(Icons.cake),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {},
+            ),
+          Divider(),
+        ],
       );
-      list..add(tempWidget)
-          ..add(Divider());
-    }
-    return list;
+    }).toList();
   }
+
+  /* List<Widget> _createItems() {
+    var widgets = options.map((item) => ListTile(title: Text(item + '!'))).toList();
+    return widgets;
+  } */
+
+  //List<Widget> _createItems() => options.map((item) => ListTile(title: Text(item + '!'))).toList();
 
 }
